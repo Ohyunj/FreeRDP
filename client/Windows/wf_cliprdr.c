@@ -300,7 +300,7 @@ static HRESULT STDMETHODCALLTYPE CliprdrStream_Seek(IStream* This, LARGE_INTEGER
 			return E_INVALIDARG;
 	}
 
-	if (newoffset < 0 || newoffset >= instance->m_lSize.QuadPart)
+	if (LONGLONG)newoffset < 0 || newoffset >= instance->m_lSize.QuadPart)
 		return E_FAIL;
 
 	instance->m_lOffset.QuadPart = newoffset;
